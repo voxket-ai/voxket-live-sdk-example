@@ -163,6 +163,8 @@ function App() {
         modalities={['voice', 'chat']}
         theme="light"
         displayType="popup"
+        width='400px'
+        height='600px'
         popupPosition="bottom-right"
         popupTriggerText="Need Help?"
         onSessionStart={(sessionId) => {
