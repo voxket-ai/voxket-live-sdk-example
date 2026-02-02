@@ -160,18 +160,28 @@ function App() {
         appId="com.voxket.ai.test"
         appSecret="wa4sPM7E0pRP28o6ueDEu12PtIUMCeklY58E3B6trTYNrPFxkXioFN6ZKQPV5ywo"
         participantName="Customer"
-        modalities={['voice', 'chat']}
+        modalities={[
+          { mod_type: 'voice', agent_id: 'fab20438-867f-4261-8dff-1b82d1009f2t' },
+          { mod_type: 'chat', agent_id: 'fab20438-867f-4261-8dff-1b82d1009f2f' }
+        ]}
         theme="light"
         displayType="popup"
         width='400px'
         height='600px'
         popupPosition="bottom-right"
         popupTriggerText="Need Help?"
+        onError={(error) => {
+          console.error('Voxket Error:', error);
+          alert(`Error: ${error.message}`);
+        }}
         onSessionStart={(sessionId) => {
           console.log('Session started:', sessionId);
         }}
         onSessionEnd={(metrics) => {
           console.log('Session ended:', metrics);
+        }}
+        onPopupToggle={(isOpen) => {
+          console.log('Popup is now:', isOpen ? 'open' : 'closed');
         }}
       />
     </div>
